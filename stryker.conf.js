@@ -6,7 +6,12 @@ module.exports = function (config) {
     testRunner: "jest",
     transpilers: [],
     coverageAnalysis: "off",
-    mutate: ["src/**/*.js"],
+    mutate: [
+      "src/**/*.js", 
+      "!src/**/*.test.js", 
+      "!src/**/index.js", 
+      "!src/**/serviceWorker.js"
+    ],
     jest: {
       projectType: 'react',
     }
