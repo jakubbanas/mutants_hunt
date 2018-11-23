@@ -7,14 +7,14 @@ const movies = [
     image:
       "https://www.gameaxis.com/wp-content/uploads/2018/09/spider-man-hero.jpg",
     title: "Spider man",
-    rating: 0
+    rating: 4
   },
   {
     id: 1,
     image:
       "https://www.gameaxis.com/wp-content/uploads/2018/09/spider-man-hero.jpg",
     title: "Spider man",
-    rating: 0
+    rating: 1
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const movies = [
     image:
       "https://www.gameaxis.com/wp-content/uploads/2018/09/spider-man-hero.jpg",
     title: "Spider man",
-    rating: 0
+    rating: 2
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const movies = [
     image:
       "https://www.gameaxis.com/wp-content/uploads/2018/09/spider-man-hero.jpg",
     title: "Spider man",
-    rating: 0
+    rating: 5
   },
   {
     id: 6,
@@ -58,7 +58,12 @@ class MoviesList extends Component {
     return (
       <div className="row">
         {movies.map(movie => (
-          <Movie key={movie.id} title={movie.title} image={movie.image} />
+          <Movie
+            key={movie.id}
+            title={movie.title}
+            image={movie.image}
+            rating={movie.rating}
+          />
         ))}
       </div>
     );
