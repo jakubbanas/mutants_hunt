@@ -5,7 +5,7 @@ import React, { Component } from "react";
 const MAX_VALUE = 5;
 
 class Rating extends Component {
-  state = { rating: this.props.rating };
+  state = { rating: this.props.rating || 0 };
 
   setRating = rating => this.setState({ rating });
 
