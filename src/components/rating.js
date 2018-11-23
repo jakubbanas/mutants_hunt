@@ -1,17 +1,34 @@
-import { ReactComponent as EmptyStar } from "../assets/empty_star.svg";
-import { ReactComponent as FullStar } from "../assets/full_star.svg";
+import { ReactComponent as EmptyStarIcon } from "../assets/empty_star.svg";
+import { ReactComponent as FullStarIcon } from "../assets/full_star.svg";
 import React, { Component } from "react";
 
 const MAX_VALUE = 5;
 
 class Rating extends Component {
+  state = { rating: this.props.rating };
+
+  setRating = rating => this.setState({ rating });
+
   render() {
     let stars = [];
-    const { rating } = this.props;
+    const { rating } = this.state;
     for (let i = 1; i <= MAX_VALUE; i++)
-      stars.push(i <= rating ? <FullStar /> : <EmptyStar />);
-    console.log(stars);
+      stars.push(
+        <Star key={i} isFull={i <= rating} onClick={() => this.setRating(i)} />
+      );
+
     return <>{stars}</>;
+  }
+}
+
+class Star extends Component {
+  render() {
+    const { onClick, isFull } = this.props;
+    return (
+      <span onClick={onClick}>
+        {isFull ? <FullStarIcon /> : <EmptyStarIcon />}
+      </span>
+    );
   }
 }
 
