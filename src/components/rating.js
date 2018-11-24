@@ -14,14 +14,18 @@ class Rating extends Component {
     const { rating } = this.state;
     for (let i = 1; i <= MAX_VALUE; i++)
       stars.push(
-        <Star key={i} isFull={i <= rating} onClick={() => this.setRating(i)} />
+        <Star
+          key={i}
+          isFull={i <= rating}
+          onClick={this.setRating.bind(this, i)}
+        />
       );
 
     return <>{stars}</>;
   }
 }
 
-class Star extends Component {
+export class Star extends Component {
   render() {
     const { onClick, isFull } = this.props;
     return (
