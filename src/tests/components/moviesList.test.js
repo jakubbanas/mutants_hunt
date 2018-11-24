@@ -1,9 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
+
 import MoviesList from "../../components/moviesList";
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<MoviesList />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const wrapper = shallow(<MoviesList />);
+  expect(wrapper).toMatchSnapshot();
 });
