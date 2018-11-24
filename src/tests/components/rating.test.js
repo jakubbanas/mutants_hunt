@@ -5,7 +5,6 @@ import Rating, { Star } from "../../components/rating";
 
 it("renders without crashing", () => {
   const rating = shallow(<Rating />);
-  expect(rating).toMatchSnapshot();
 
   rating
     .find(Star)
